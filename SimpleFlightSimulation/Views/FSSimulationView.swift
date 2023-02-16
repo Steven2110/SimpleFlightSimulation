@@ -17,6 +17,12 @@ struct FSSimulationView: View {
     private var velocity: Double = 5.0
     private var angle: Double = 45.0
     
+    private var coordinates: [Coordinate] = [
+        Coordinate(x: 10.5, y: 4.3),
+        Coordinate(x: 3.4, y: 2.5),
+        Coordinate(x: 7.5, y: 2.5)
+    ]
+    
     var body: some View {
         title
         Divider()
@@ -49,8 +55,8 @@ struct FSSimulationView: View {
                     }
                 }
                 .padding(10)
-                Chart {
-                    PointMark(x: .value("x", 2.5), y: .value("y", 3.5))
+                Chart(coordinates) { coordinate in
+                    PointMark(x: .value("x", coordinate.x), y: .value("y", coordinate.y ))
                 }
                 .padding(20)
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
