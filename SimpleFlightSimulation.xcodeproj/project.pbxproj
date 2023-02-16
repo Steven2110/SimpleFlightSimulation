@@ -16,6 +16,7 @@
 		B08A8A31299DEF0B007EC6C2 /* FSSimulationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A8A30299DEF0B007EC6C2 /* FSSimulationComponent.swift */; };
 		B08A8A33299E6380007EC6C2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B08A8A32299E6380007EC6C2 /* .gitignore */; };
 		B08A8A37299E63EC007EC6C2 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A8A36299E63EC007EC6C2 /* Coordinate.swift */; };
+		B08A8A44299E6A48007EC6C2 /* LaTeXSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = B08A8A43299E6A48007EC6C2 /* LaTeXSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B08A8A44299E6A48007EC6C2 /* LaTeXSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +126,9 @@
 			dependencies = (
 			);
 			name = SimpleFlightSimulation;
+			packageProductDependencies = (
+				B08A8A43299E6A48007EC6C2 /* LaTeXSwiftUI */,
+			);
 			productName = SimpleFlightSimulation;
 			productReference = B08A8A15299DE0FF007EC6C2 /* SimpleFlightSimulation.app */;
 			productType = "com.apple.product-type.application";
@@ -152,6 +157,9 @@
 				Base,
 			);
 			mainGroup = B08A8A0C299DE0FF007EC6C2;
+			packageReferences = (
+				B08A8A42299E6A48007EC6C2 /* XCRemoteSwiftPackageReference "LaTeXSwiftUI" */,
+			);
 			productRefGroup = B08A8A16299DE0FF007EC6C2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -380,6 +388,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B08A8A42299E6A48007EC6C2 /* XCRemoteSwiftPackageReference "LaTeXSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/colinc86/LaTeXSwiftUI";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B08A8A43299E6A48007EC6C2 /* LaTeXSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B08A8A42299E6A48007EC6C2 /* XCRemoteSwiftPackageReference "LaTeXSwiftUI" */;
+			productName = LaTeXSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B08A8A0D299DE0FF007EC6C2 /* Project object */;
 }

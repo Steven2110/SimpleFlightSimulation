@@ -7,15 +7,17 @@
 
 import SwiftUI
 import Charts
+import LaTeXSwiftUI
 
 struct FSSimulationView: View {
     
     private var timestep: Double = 0.001
     
-    private var weight: Double = 1.0
+    private var mass: Double = 1.0
     private var height: Double = 0.0
     private var velocity: Double = 5.0
     private var angle: Double = 45.0
+    private var area: Double = 2.0
     
     private var coordinates: [Coordinate] = [
         Coordinate(x: 10.5, y: 4.3),
@@ -104,18 +106,34 @@ extension FSSimulationView {
                 .padding(20)
             Divider()
             VStack(alignment: .leading) {
-                Text("Weight: \(weight, specifier: "%.1f") m")
-                    .font(.custom("Arial", size: 20))
+                HStack {
+                    Text("Mass: \(mass, specifier: "%.1f")")
+                        .font(.custom("Arial", size: 20))
+                    LaTeX("$kg$").font(.title2)
+                }
                 FSButton()
             }.padding(20)
             VStack(alignment: .leading) {
-                Text("Height: \(height) m")
-                    .font(.custom("Arial", size: 20))
+                HStack {
+                    Text("Height: \(height)")
+                        .font(.custom("Arial", size: 20))
+                    LaTeX("$m$").font(.title2)
+                }
                 FSButton()
             }.padding(20)
             VStack(alignment: .leading) {
-                Text("Velocity: \(velocity, specifier: "%.1f") m/s")
-                    .font(.custom("Arial", size: 20))
+                HStack {
+                    Text("Area: \(area, specifier: "%.1f")").font(.custom("Arial", size: 20))
+                    LaTeX("$m^2$").font(.title2)
+                }
+                    
+                FSButton()
+            }.padding(20)
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("Velocity: \(velocity, specifier: "%.1f")").font(.custom("Arial", size: 20))
+                    LaTeX("$m/s$").font(.title2)
+                }
                 FSButton()
             }.padding(20)
             VStack(alignment: .leading) {
