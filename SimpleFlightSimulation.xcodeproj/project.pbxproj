@@ -11,6 +11,8 @@
 		B08A8A1B299DE0FF007EC6C2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A8A1A299DE0FF007EC6C2 /* ContentView.swift */; };
 		B08A8A1D299DE100007EC6C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B08A8A1C299DE100007EC6C2 /* Assets.xcassets */; };
 		B08A8A20299DE100007EC6C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B08A8A1F299DE100007EC6C2 /* Preview Assets.xcassets */; };
+		B08A8A2C299DE217007EC6C2 /* FSSimulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A8A2B299DE217007EC6C2 /* FSSimulationView.swift */; };
+		B08A8A2E299DE4A9007EC6C2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B08A8A2D299DE4A9007EC6C2 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		B08A8A1C299DE100007EC6C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B08A8A1F299DE100007EC6C2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B08A8A21299DE100007EC6C2 /* SimpleFlightSimulation.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SimpleFlightSimulation.entitlements; sourceTree = "<group>"; };
+		B08A8A2B299DE217007EC6C2 /* FSSimulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSSimulationView.swift; sourceTree = "<group>"; };
+		B08A8A2D299DE4A9007EC6C2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +40,7 @@
 		B08A8A0C299DE0FF007EC6C2 = {
 			isa = PBXGroup;
 			children = (
+				B08A8A2D299DE4A9007EC6C2 /* README.md */,
 				B08A8A17299DE0FF007EC6C2 /* SimpleFlightSimulation */,
 				B08A8A16299DE0FF007EC6C2 /* Products */,
 			);
@@ -54,6 +59,9 @@
 			children = (
 				B08A8A18299DE0FF007EC6C2 /* SimpleFlightSimulationApp.swift */,
 				B08A8A1A299DE0FF007EC6C2 /* ContentView.swift */,
+				B08A8A27299DE17F007EC6C2 /* Models */,
+				B08A8A28299DE186007EC6C2 /* ViewModels */,
+				B08A8A2A299DE193007EC6C2 /* Views */,
 				B08A8A1C299DE100007EC6C2 /* Assets.xcassets */,
 				B08A8A21299DE100007EC6C2 /* SimpleFlightSimulation.entitlements */,
 				B08A8A1E299DE100007EC6C2 /* Preview Content */,
@@ -67,6 +75,28 @@
 				B08A8A1F299DE100007EC6C2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B08A8A27299DE17F007EC6C2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B08A8A28299DE186007EC6C2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B08A8A2A299DE193007EC6C2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B08A8A2B299DE217007EC6C2 /* FSSimulationView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +157,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B08A8A2E299DE4A9007EC6C2 /* README.md in Resources */,
 				B08A8A20299DE100007EC6C2 /* Preview Assets.xcassets in Resources */,
 				B08A8A1D299DE100007EC6C2 /* Assets.xcassets in Resources */,
 			);
@@ -139,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B08A8A2C299DE217007EC6C2 /* FSSimulationView.swift in Sources */,
 				B08A8A1B299DE0FF007EC6C2 /* ContentView.swift in Sources */,
 				B08A8A19299DE0FF007EC6C2 /* SimpleFlightSimulationApp.swift in Sources */,
 			);
