@@ -13,6 +13,8 @@
 		B08A8A20299DE100007EC6C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B08A8A1F299DE100007EC6C2 /* Preview Assets.xcassets */; };
 		B08A8A2C299DE217007EC6C2 /* FSSimulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A8A2B299DE217007EC6C2 /* FSSimulationView.swift */; };
 		B08A8A2E299DE4A9007EC6C2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B08A8A2D299DE4A9007EC6C2 /* README.md */; };
+		B08A8A31299DEF0B007EC6C2 /* FSSimulationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A8A30299DEF0B007EC6C2 /* FSSimulationComponent.swift */; };
+		B08A8A33299E6380007EC6C2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B08A8A32299E6380007EC6C2 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		B08A8A21299DE100007EC6C2 /* SimpleFlightSimulation.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SimpleFlightSimulation.entitlements; sourceTree = "<group>"; };
 		B08A8A2B299DE217007EC6C2 /* FSSimulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSSimulationView.swift; sourceTree = "<group>"; };
 		B08A8A2D299DE4A9007EC6C2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B08A8A30299DEF0B007EC6C2 /* FSSimulationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSSimulationComponent.swift; sourceTree = "<group>"; };
+		B08A8A32299E6380007EC6C2 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +45,7 @@
 			isa = PBXGroup;
 			children = (
 				B08A8A2D299DE4A9007EC6C2 /* README.md */,
+				B08A8A32299E6380007EC6C2 /* .gitignore */,
 				B08A8A17299DE0FF007EC6C2 /* SimpleFlightSimulation */,
 				B08A8A16299DE0FF007EC6C2 /* Products */,
 			);
@@ -94,6 +99,7 @@
 		B08A8A2A299DE193007EC6C2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B08A8A30299DEF0B007EC6C2 /* FSSimulationComponent.swift */,
 				B08A8A2B299DE217007EC6C2 /* FSSimulationView.swift */,
 			);
 			path = Views;
@@ -157,6 +163,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B08A8A33299E6380007EC6C2 /* .gitignore in Resources */,
 				B08A8A2E299DE4A9007EC6C2 /* README.md in Resources */,
 				B08A8A20299DE100007EC6C2 /* Preview Assets.xcassets in Resources */,
 				B08A8A1D299DE100007EC6C2 /* Assets.xcassets in Resources */,
@@ -170,6 +177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B08A8A31299DEF0B007EC6C2 /* FSSimulationComponent.swift in Sources */,
 				B08A8A2C299DE217007EC6C2 /* FSSimulationView.swift in Sources */,
 				B08A8A1B299DE0FF007EC6C2 /* ContentView.swift in Sources */,
 				B08A8A19299DE0FF007EC6C2 /* SimpleFlightSimulationApp.swift in Sources */,
