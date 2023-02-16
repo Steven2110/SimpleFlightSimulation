@@ -21,8 +21,9 @@ struct FSSimulationView: View {
     @State private var angle: Double = 45.0
     @State private var area: Double = 2.0
     
-    @State var isTimerStopped: Bool = false
-    @State var timer: Timer?
+    @State private var isTimerStopped: Bool = false
+    @State private var timer: Timer?
+    @State private var timeElapsed: Double = 0.0
     
     var body: some View {
         title
@@ -39,47 +40,18 @@ struct FSSimulationView: View {
             .frame(width: 500)
             VStack {
                 HStack {
-                    Button {
-                        // Input initial motion parameter to the view model
-                        if !isTimerStopped {
-                            vm.inputInitialMotion(
-                                initialHeight: height,
-                                initialMass: mass,
-                                initialVelocity: velocity,
-                                initialArea: area,
-                                initialAngle: angle,
-                                timestamp: timestep
-                            )
-                        }
-                        // Start the projectile motion every timestep seconds
-                        timer = Timer.scheduledTimer(withTimeInterval: timestep,
-                                                     repeats: true) { _ in
-                            if !vm.finalState {
-                                vm.startMotion()
-                            } else {
-                                isTimerStopped = false
-                                timer?.invalidate()
-                            }}
-                    } label: {
-                        Text("Start simulation!")
-                    }
-                    Button {
-                        isTimerStopped = true
-                        timer?.invalidate()
-                    } label: {
-                        Text("Stop simulation!")
-                    }
-                    Button {
-                        vm.resetState()
-                    } label: {
-                        Text("Reset simulation!")
-                    }
-                }
-                .padding(10)
+                    simulationButtonGroup
+                    Spacer()
+                    HStack {
+                        distanceTraveledInfo
+                        maxHeightInfo
+                        finalVelocityInfo
+                    }.font(.title2)
+                }.padding(10)
+                timeElapsedInfo
                 Chart(vm.coordinates) { coordinate in
                     PointMark(x: .value("x", coordinate.x), y: .value("y", coordinate.y ))
-                }
-                .padding(20)
+                }.padding(20)
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
@@ -160,6 +132,75 @@ extension FSSimulationView {
                     .font(.custom("Arial", size: 20))
                 FSButton(value: $angle)
             }.padding(20)
+        }
+    }
+    
+    private var distanceTraveledInfo: some View {
+        Group {
+            Text("Distance traveled: \(vm.getDistance(), specifier: "%.2f")")
+            LaTeX("$m$")
+        }
+    }
+    
+    private var maxHeightInfo: some View {
+        Group {
+            Text("Max height: \(vm.getMaxHeight(), specifier: "%.2f")")
+            LaTeX("$m$")
+        }
+    }
+    
+    private var finalVelocityInfo: some View {
+        Group {
+            Text("Final velocity: \(vm.getFinalVelocity(), specifier: "%.2f")")
+            LaTeX("$m/s$")
+        }
+    }
+    
+    private var timeElapsedInfo: some View {
+        HStack {
+            Text("Time elapsed: \(timeElapsed, specifier: "%.2f")")
+            LaTeX("$s$")
+        }.font(.title2)
+    }
+    
+    private var simulationButtonGroup: some View {
+        HStack {
+            Button {
+                // Input initial motion parameter to the view model
+                if !isTimerStopped {
+                    vm.inputInitialMotion(
+                        initialHeight: height,
+                        initialMass: mass,
+                        initialVelocity: velocity,
+                        initialArea: area,
+                        initialAngle: angle,
+                        timestamp: timestep
+                    )
+                }
+                // Start the projectile motion every timestep seconds
+                timer = Timer.scheduledTimer(withTimeInterval: timestep,
+                                             repeats: true) { _ in
+                    if !vm.isFinalState {
+                        vm.startMotion()
+                        timeElapsed += timestep
+                    } else {
+                        isTimerStopped = false
+                        timer?.invalidate()
+                    }}
+            } label: {
+                Text("Start simulation!")
+            }
+            Button {
+                isTimerStopped = true
+                timer?.invalidate()
+            } label: {
+                Text("Stop simulation!")
+            }
+            Button {
+                vm.resetState()
+            } label: {
+                Text("Reset simulation!")
+            }
         }
     }
 }

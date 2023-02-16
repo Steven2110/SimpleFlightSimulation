@@ -9,7 +9,7 @@ import Foundation
 
 final class ProjectileViewModel: ObservableObject {
     @Published var coordinates: [Coordinate]
-    @Published var finalState: Bool = false
+    @Published var isFinalState: Bool = false
     
     private var x: Double = 0.0
     private var y: Double = 0.0
@@ -67,17 +67,25 @@ final class ProjectileViewModel: ObservableObject {
         t += dt
         let v: Double = sqrt(pow(vx, 2) + pow(vy, 2))
         
+        // Save previous vx and vy for finding final velocity a moment (timestep) before it hit the ground
+        let previousVx: Double = vx
+        let previousVy: Double = vy
+        
         vx = vx - beta/mass * vx * v * dt
         vy = vy - (Constants.g + beta / mass * vy * v) * dt
         
         x = x + vx * dt
         y = y + vy * dt
-        
+        print(y)
         if y >= 0 {
             let coordinate: Coordinate = Coordinate(x: x, y: y)
             coordinates.append(coordinate)
         } else {
-            finalState = true
+            // Return the calculation for final x and y velocity
+            vx = previousVx
+            vy = previousVy
+            
+            isFinalState = true
         }
     }
     
@@ -97,5 +105,17 @@ final class ProjectileViewModel: ObservableObject {
         beta = 0.0
         
         coordinates = [Coordinate]()
+    }
+    
+    func getDistance() -> Double {
+        x
+    }
+    
+    func getMaxHeight() -> Double {
+        coordinates.max { $0.y < $1.y }?.y ?? 0
+    }
+    
+    func getFinalVelocity() -> Double {
+        sqrt(pow(vx, 2) + pow(vy, 2))
     }
 }
