@@ -80,4 +80,22 @@ final class ProjectileViewModel: ObservableObject {
             finalState = true
         }
     }
+    
+    func resetState() {
+        x = 0.0
+        y = 0.0
+        mass = 0.0
+        area = 0.0
+        angle = 0.0
+        velocity = 0
+        vx = 0.0
+        vy = 0.0
+        sina = 0.0
+        cosa = 0.0
+        t = 0.0
+        dt = 0.0
+        beta = 0.0
+        
+        coordinates = [Coordinate]()
+    }
 }

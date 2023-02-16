@@ -13,14 +13,15 @@ struct FSSimulationView: View {
     
     @StateObject var vm: ProjectileViewModel = ProjectileViewModel()
     
-    private var timestep: Double = 0.001
+    @State private var timestep: Double = 0.001
     
-    private var mass: Double = 1.0
-    private var height: Double = 0.0
-    private var velocity: Double = 5.0
-    private var angle: Double = 45.0
-    private var area: Double = 2.0
+    @State private var mass: Double = 1.0
+    @State private var height: Double = 0.0
+    @State private var velocity: Double = 5.0
+    @State private var angle: Double = 45.0
+    @State private var area: Double = 2.0
     
+    @State var isTimerStopped: Bool = false
     @State var timer: Timer?
     
     var body: some View {
@@ -40,25 +41,36 @@ struct FSSimulationView: View {
                 HStack {
                     Button {
                         // Input initial motion parameter to the view model
-                        vm.inputInitialMotion(initialHeight: height, initialMass: mass, initialVelocity: velocity, initialArea: area, initialAngle: angle, timestamp: timestep)
+                        if !isTimerStopped {
+                            vm.inputInitialMotion(
+                                initialHeight: height,
+                                initialMass: mass,
+                                initialVelocity: velocity,
+                                initialArea: area,
+                                initialAngle: angle,
+                                timestamp: timestep
+                            )
+                        }
                         // Start the projectile motion every timestep seconds
                         timer = Timer.scheduledTimer(withTimeInterval: timestep,
                                                      repeats: true) { _ in
                             if !vm.finalState {
                                 vm.startMotion()
                             } else {
+                                isTimerStopped = false
                                 timer?.invalidate()
                             }}
                     } label: {
                         Text("Start simulation!")
                     }
                     Button {
-                        
+                        isTimerStopped = true
+                        timer?.invalidate()
                     } label: {
                         Text("Stop simulation!")
                     }
                     Button {
-                        
+                        vm.resetState()
                     } label: {
                         Text("Reset simulation!")
                     }
@@ -99,7 +111,7 @@ extension FSSimulationView {
                 Text("Timestep: \(timestep) s")
                     .font(.custom("Arial", size: 20))
                 Spacer()
-                FSTimestepButton()
+                FSTimestepButton(timestep: $timestep)
             }
             .padding(20)
         }
@@ -118,7 +130,7 @@ extension FSSimulationView {
                         .font(.custom("Arial", size: 20))
                     LaTeX("$kg$").font(.title2)
                 }
-                FSButton()
+                FSButton(value: $mass)
             }.padding(20)
             VStack(alignment: .leading) {
                 HStack {
@@ -126,7 +138,7 @@ extension FSSimulationView {
                         .font(.custom("Arial", size: 20))
                     LaTeX("$m$").font(.title2)
                 }
-                FSButton()
+                FSButton(value: $height)
             }.padding(20)
             VStack(alignment: .leading) {
                 HStack {
@@ -134,19 +146,19 @@ extension FSSimulationView {
                     LaTeX("$m^2$").font(.title2)
                 }
                     
-                FSButton()
+                FSButton(value: $area)
             }.padding(20)
             VStack(alignment: .leading) {
                 HStack {
                     Text("Velocity: \(velocity, specifier: "%.1f")").font(.custom("Arial", size: 20))
                     LaTeX("$m/s$").font(.title2)
                 }
-                FSButton()
+                FSButton(value: $velocity)
             }.padding(20)
             VStack(alignment: .leading) {
                 Text("Angle: \(angle, specifier: "%.1f") º")
                     .font(.custom("Arial", size: 20))
-                FSButton()
+                FSButton(value: $angle)
             }.padding(20)
         }
     }
