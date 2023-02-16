@@ -17,6 +17,8 @@
 		B08A8A33299E6380007EC6C2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B08A8A32299E6380007EC6C2 /* .gitignore */; };
 		B08A8A37299E63EC007EC6C2 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A8A36299E63EC007EC6C2 /* Coordinate.swift */; };
 		B08A8A44299E6A48007EC6C2 /* LaTeXSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = B08A8A43299E6A48007EC6C2 /* LaTeXSwiftUI */; };
+		B08A8A46299E6D3F007EC6C2 /* ProjectileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A8A45299E6D3F007EC6C2 /* ProjectileViewModel.swift */; };
+		B08A8A48299E6D5F007EC6C2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A8A47299E6D5F007EC6C2 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		B08A8A30299DEF0B007EC6C2 /* FSSimulationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSSimulationComponent.swift; sourceTree = "<group>"; };
 		B08A8A32299E6380007EC6C2 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B08A8A36299E63EC007EC6C2 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		B08A8A45299E6D3F007EC6C2 /* ProjectileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectileViewModel.swift; sourceTree = "<group>"; };
+		B08A8A47299E6D5F007EC6C2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 			children = (
 				B08A8A18299DE0FF007EC6C2 /* SimpleFlightSimulationApp.swift */,
 				B08A8A1A299DE0FF007EC6C2 /* ContentView.swift */,
+				B08A8A47299E6D5F007EC6C2 /* Constants.swift */,
 				B08A8A27299DE17F007EC6C2 /* Models */,
 				B08A8A28299DE186007EC6C2 /* ViewModels */,
 				B08A8A2A299DE193007EC6C2 /* Views */,
@@ -97,6 +102,7 @@
 		B08A8A28299DE186007EC6C2 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				B08A8A45299E6D3F007EC6C2 /* ProjectileViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -189,8 +195,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B08A8A31299DEF0B007EC6C2 /* FSSimulationComponent.swift in Sources */,
+				B08A8A46299E6D3F007EC6C2 /* ProjectileViewModel.swift in Sources */,
 				B08A8A2C299DE217007EC6C2 /* FSSimulationView.swift in Sources */,
 				B08A8A1B299DE0FF007EC6C2 /* ContentView.swift in Sources */,
+				B08A8A48299E6D5F007EC6C2 /* Constants.swift in Sources */,
 				B08A8A19299DE0FF007EC6C2 /* SimpleFlightSimulationApp.swift in Sources */,
 				B08A8A37299E63EC007EC6C2 /* Coordinate.swift in Sources */,
 			);

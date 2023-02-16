@@ -11,6 +11,8 @@ import LaTeXSwiftUI
 
 struct FSSimulationView: View {
     
+    @StateObject var vm: ProjectileViewModel = ProjectileViewModel()
+    
     private var timestep: Double = 0.001
     
     private var mass: Double = 1.0
@@ -19,11 +21,7 @@ struct FSSimulationView: View {
     private var angle: Double = 45.0
     private var area: Double = 2.0
     
-    private var coordinates: [Coordinate] = [
-        Coordinate(x: 10.5, y: 4.3),
-        Coordinate(x: 3.4, y: 2.5),
-        Coordinate(x: 7.5, y: 2.5)
-    ]
+    @State var timer: Timer?
     
     var body: some View {
         title
@@ -41,7 +39,16 @@ struct FSSimulationView: View {
             VStack {
                 HStack {
                     Button {
-                        
+                        // Input initial motion parameter to the view model
+                        vm.inputInitialMotion(initialHeight: height, initialMass: mass, initialVelocity: velocity, initialArea: area, initialAngle: angle, timestamp: timestep)
+                        // Start the projectile motion every timestep seconds
+                        timer = Timer.scheduledTimer(withTimeInterval: timestep,
+                                                     repeats: true) { _ in
+                            if !vm.finalState {
+                                vm.startMotion()
+                            } else {
+                                timer?.invalidate()
+                            }}
                     } label: {
                         Text("Start simulation!")
                     }
@@ -57,7 +64,7 @@ struct FSSimulationView: View {
                     }
                 }
                 .padding(10)
-                Chart(coordinates) { coordinate in
+                Chart(vm.coordinates) { coordinate in
                     PointMark(x: .value("x", coordinate.x), y: .value("y", coordinate.y ))
                 }
                 .padding(20)
