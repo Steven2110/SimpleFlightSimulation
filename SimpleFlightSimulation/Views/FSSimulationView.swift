@@ -197,6 +197,9 @@ extension FSSimulationView {
                 Text("Stop simulation!")
             }
             Button {
+                timer = nil
+                isTimerStopped = false
+                timeElapsed = 0.0
                 vm.resetState()
             } label: {
                 Text("Reset simulation!")

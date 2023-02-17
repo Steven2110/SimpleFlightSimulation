@@ -104,7 +104,10 @@ final class ProjectileViewModel: ObservableObject {
         dt = 0.0
         beta = 0.0
         
-        coordinates = [Coordinate]()
+        DispatchQueue.main.async { [self] in
+            coordinates = [Coordinate]()
+            isFinalState = false
+        }
     }
     
     func getDistance() -> Double {
