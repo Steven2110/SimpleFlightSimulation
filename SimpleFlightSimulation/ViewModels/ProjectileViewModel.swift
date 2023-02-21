@@ -11,7 +11,6 @@ final class ProjectileViewModel: ObservableObject {
     @Published var projectileObjects: [FSProjectileObject] = [FSProjectileObject]()
     @Published var isFinalState: Bool = false
 
-    private var t: Double = 0.0
     private var dt: Double = 0.001
     
     func setTimestep(_ timestep: Double) {
@@ -31,11 +30,12 @@ final class ProjectileViewModel: ObservableObject {
     }
     
     func startMotion() {
-        t += dt
         var isCurrentStateFinal: [Bool] = [Bool]()
         for projectileObj in projectileObjects {
-            projectileObj.move(by: dt)
-            isCurrentStateFinal.append(projectileObj.getState())
+            if !projectileObj.getState() {
+                projectileObj.move(by: dt)
+                isCurrentStateFinal.append(projectileObj.getState())
+            }
         }
         isFinalState = !isCurrentStateFinal.contains(false)
     }

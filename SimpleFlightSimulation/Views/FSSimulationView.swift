@@ -186,7 +186,7 @@ extension FSSimulationView {
                             Text("Area: \(projectileObject.area, specifier: "%.1f")")
                             LaTeX("$m^2$")
                         }
-                        Text("Angle: \(projectileObject.angle, specifier: "%.1f")º")
+                        Text("Angle: \(projectileObject.angle, specifier: "%.1f") º")
                     }
                     Divider()
                     // Result/simulation analysis information
@@ -202,6 +202,10 @@ extension FSSimulationView {
                         HStack {
                             Text("Final velocity: \(projectileObject.getFinalVelocity(), specifier: "%.2f")")
                             LaTeX("$m/s$")
+                        }
+                        HStack {
+                            Text("Elapsed time: \(projectileObject.t, specifier: "%.2f")")
+                            LaTeX("$s$")
                         }
                     }.padding(.bottom, 10)
                 }

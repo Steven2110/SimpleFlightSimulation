@@ -28,6 +28,8 @@ class FSProjectileObject: Identifiable {
     var vx: Double = 0.0
     var vy: Double = 0.0
     
+    var t: Double = 0.0
+    
     var isFinalState: Bool = false
     
     init(_ number: Int, height: Double, mass: Double, area: Double, velocity: Double, angle: Double) {
@@ -52,6 +54,8 @@ class FSProjectileObject: Identifiable {
     }
     
     func move(by dt: Double) {
+        self.t += dt
+        
         let v: Double = sqrt(pow(vx, 2) + pow(vy, 2))
         
         let previousVx: Double = vx
